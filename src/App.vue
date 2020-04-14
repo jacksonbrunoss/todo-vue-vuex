@@ -13,4 +13,6 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+@import url("https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css");
+</style>

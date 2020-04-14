@@ -1,10 +1,15 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <TextfieldTodo />
+  </div>
 </template>
 
 <script>
+import TextfieldTodo from "@/components/Todo/TextfieldTodo";
 export default {
   name: "Home",
-  components: {}
+  components: {
+    TextfieldTodo
+  }
 };
 </script>
