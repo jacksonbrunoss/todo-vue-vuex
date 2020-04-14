@@ -1,17 +1,33 @@
 <template>
   <section class="box-todo">
-    <p v-for="task in todos" :key="task.id"></p>
+    <div class="tile">
+      <div class="tile-content">
+        <div class="tile-title">
+          <p>{{ task.title }}</p>
+        </div>
+      </div>
+      <div class="tile-action">
+        <button class="btn btn-error" @click="$emit('remove', task)">
+          Remover
+        </button>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
   name: "Todo",
-  computed: {
-    ...mapState(["todos"])
+  props: {
+    task: { type: Object, required: true }
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.tile-title p {
+  display: block;
+  padding: 16px 0px;
+  font-size: 1.2rem;
+}
+</style>

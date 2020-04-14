@@ -35,7 +35,7 @@ export default {
     ...mapActions(["addTodo"]),
     add(task) {
       this.addTodo(task);
-      this.task = { computed: false };
+      this.task = { completed: false };
       console.log(this.todos);
     }
   }
