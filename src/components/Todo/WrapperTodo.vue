@@ -6,6 +6,7 @@
         v-for="task in todos"
         :key="task.id"
         @remove="removeTodo(task)"
+        @completed="completedTodo(task)"
       />
     </div>
   </section>
@@ -21,7 +22,7 @@ export default {
     ...mapState(["todos"])
   },
   methods: {
-    ...mapActions(["removeTodo"])
+    ...mapActions(["removeTodo", "completedTodo"])
   }
 };
 </script>

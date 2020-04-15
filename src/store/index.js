@@ -12,8 +12,16 @@ export default new Vuex.Store({
       state.todos.push(payload);
     },
     removeTodo(state, payload) {
-      state.todos.splice(state.todos.indexOf(payload), 1);
-      // state.todos = state.todos.filter(item => item.id !== payload.id);
+      //state.todos.splice(state.todos.indexOf(payload), 1);
+      state.todos = state.todos.filter(item => item.id !== payload.id);
+    },
+    completedTodo(state, payload) {
+      const index = state.todos.findIndex(i => i.id === payload.id);
+      if (index > -1) {
+        const completed = !state.todos[index].completed;
+        Vue.set(state.todos, index, { ...state.todos[index], completed });
+        console.log(completed);
+      }
     }
   },
   actions: {
@@ -23,6 +31,9 @@ export default new Vuex.Store({
     },
     removeTodo({ commit }, task) {
       commit("removeTodo", task);
+    },
+    completedTodo({ commit }, task) {
+      commit("completedTodo", task);
     }
   },
   modules: {}
